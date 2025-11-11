@@ -1,0 +1,43 @@
+.menu_holder{
+    display: flex;
+    margin-top: 70px;
+}
+
+.menu{
+    flex: 2;
+    background-color: palevioletred;
+    border-right: 5px solid white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-bottom: 15%;
+    gap: 15px;
+}
+
+.image-container {
+    flex: 1;
+    background-color: white;
+    padding-bottom: 30vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../Media/Images/Products/Visualizer.png');
+    transition: background-image 0.3s ease;
+}
+
+.hover-trigger {
+    cursor: pointer;
+    padding: 15px;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.hover-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.473);
+    transform: translateX(10px);
+}
+
+#dotted::after{
+    content: "......................................................................................................................................................................XY€";
+    font-size: 18px;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros</title>
+    <link rel="stylesheet" href="../../Styles/coreStyles.css">
+    <link rel="stylesheet" href="../../Styles/menu_hover.css">
+</head>
+
+<body style="overflow:visible; color: white;">
+    <header>
+        <div class="top_menu">
+            <a href="../../index.html" style="flex: 1;"><b>Inicio</b></a>
+            <a href="../Menus/menu_cakes.html" style="flex: 1;"><b>Tartas</b></a>
+            <a href="../Menus/menu_sweets.html" style="flex: 1;"><b>Bollería</b></a>
+            <a href="../Menus/menu_bread.html" style="flex: 1;"><b>Panes</b></a>
+            <a href="../Delivery/delivery.html" style="flex: 1;"><b>Pedidos</b></a>
+            <a href="../Us/us.html" style="flex: 1;"><b>Nosotros</b></a>
+        </div>
+        <div class="load_overlay">
+            <div class="load_icon">
+                <p><b>PASTELERÍA MARIA</b></p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="menu_holder">
+            <div class="menu">
+                <h1>El Equipo</h1>
+                <h2>Cocineros</h2>
+                <div class="hover-trigger" data-image="../../Media/Images/Team/Employ.png">
+                    <p>
+                    <h3>Eduardo</h3>
+                    </p>
+                    <p>Cocina tres veces más rápido de lo normal, pero solo hace Red Velvet llevando a que la mayor
+                        parte del menú sea red velvet o derivados.</p>
+                </div>
+                <div class="hover-trigger" data-image="../../Media/Images/Team/Employ.png">
+                    <p>
+                    <h3>Danna Donna</h3>
+                    </p>
+                    <p>Cocina el resto de los productos y toma pausas de entre una y dos horas para mirar pájaros tres
+                        veces al día en intervalos irregulares.</p>
+                </div>
+                <h2>Repartidores</h2>
+                <div class="hover-trigger" data-image="../../Media/Images/Team/Employ.png">
+                    <p>
+                    <h3>Gonzalo</h3>
+                    </p>
+                    <p>Es el único miembro del local con carnet de conducir por lo que se encarga de todos los repartos
+                        personalmente, desgraciadamente no tiene vehículo.</p>
+                </div>
+                <h2>Limpieza</h2>
+                <div class="hover-trigger" data-image="../../Media/Images/Team/Employ.png">
+                    <p>
+                    <h3>Sara</h3>
+                    </p>
+                    <p>Comparte piso con nueve personas fuera del trabajo de manera que se ha visto obligada a aprender
+                        a limpiar muy rápido.</p>
+                </div>
+                <h1>Cocina</h1>
+                <h2>Hornos</h2>
+                <div class="hover-trigger" data-image="../../Media/Images/Team/Employ.png">
+                    <p>
+                    <h3>Furnace 3000</h3>
+                    </p>
+                    <p>Hornos de alta gama, hay cuatro en el local y se utilizan para tener todo listo lo más rápido posible. Durante la semana del 97 registraron las temperaturas más altas alcanzadas en un entorno controlado resultando en cinco bajas permanentes en la plantilla.</p>
+                </div>
+                <h2>Ténicas</h2>
+                <div class="hover-trigger" data-image="../../Media/Images/Team/Employ.png">
+                    <p>
+                    <h3>Doble Envoltura</h3>
+                    </p>
+                    <p>Al usar dos veces el papel de cocina se consigue que el calor se reparta mejor para una mayor esponjosidad.</p>
+                </div>
+
+            </div>
+            <div class="image-container" id="main-image"></div>
+        </div>
+    </main>
+
+    <script>
+        // Catches all the triggers for the images
+        const hoverTriggers = document.querySelectorAll('.hover-trigger'); // Constant = anything with 'hovertriger'
+        const mainImage = document.getElementById('main-image'); // Gets the place where image show up
+
+        // Set default image
+        mainImage.style.backgroundImage = "url('../../Media/Images/Products/Visualizer.png')"; // Default, use something like 'display here'
+
+        // Add event listeners to each trigger
+        hoverTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', function () {
+                const imageName = this.getAttribute('data-image');
+
+                mainImage.style.backgroundImage = `url('../../Media/Images/${imageName}')`; // Change img url to trigger given url
+
+                console.log('Changing to:', imageName);
+            });
+        });
+
+        // Reset to default when mouse leaves the entire menu area
+        document.querySelector('.menu').addEventListener('mouseleave', function () {
+            mainImage.style.backgroundImage = "url('../../Media/Images/Products/Visualizer.png')";
+        });
+    </script>
+</body>
+
+</html>

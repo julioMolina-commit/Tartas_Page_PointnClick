@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Bollería</title>
+    <link rel="stylesheet" href="../../Styles/coreStyles.css">
+    <link rel="stylesheet" href="../../Styles/menu_hover.css">
+</head>
+<body style="overflow:visible; color: white;">
+    <header>
+        <div class="top_menu">
+            <a href="../../index.html" style="flex: 1;"><b>Inicio</b></a>
+            <a href="../Menus/menu_cakes.html" style="flex: 1;"><b>Tartas</b></a>
+            <a href="../Menus/menu_sweets.html" style="flex: 1;"><b>Bollería</b></a>
+            <a href="../Menus/menu_bread.html" style="flex: 1;"><b>Panes</b></a>
+            <a href="../Delivery/delivery.html" style="flex: 1;"><b>Pedidos</b></a>
+            <a href="../Us/us.html" style="flex: 1;"><b>Nosotros</b></a>
+        </div>
+        <div class="load_overlay">
+            <div class="load_icon">
+                <p><b>PASTELERÍA MARIA</b></p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="menu_holder">
+            <div class="menu">
+                <p><h1>MENÚ DE BOLLERÍA</h1></p>
+                <p><h2>Galletas</h2></p>
+                <p class="hover-trigger" data-image="../../Media/Images/Products/cookieone.jpg" id="dotted">Red Velvet Lacasitos</p>
+                <p class="hover-trigger" data-image="../../Media/Images/Products/cookietwo.jpg" id="dotted">Red Velvet</p>
+                <p><h2>Magdalenas</h2></p>
+                <p class="hover-trigger" data-image="../../Media/Images/Products/cupcakeone.jpg" id="dotted">Fresa</p>
+                <p class="hover-trigger" data-image="../../Media/Images/Products/cupcaketwo.jpg" id="dotted">Red Velvet</p>
+            </div>
+            <div class="image-container" id="main-image"></div>
+        </div>
+    </main>
+
+    <script>
+        // Catches all the triggers for the images
+        const hoverTriggers = document.querySelectorAll('.hover-trigger'); // Constant = anything with 'hovertriger'
+        const mainImage = document.getElementById('main-image'); // Gets the place where image show up
+        
+        // Set default image
+        mainImage.style.backgroundImage = "url('../../Media/Images/Products/Visualizer.png')"; // Default, use something like 'display here'
+        
+        // Add event listeners to each trigger
+        hoverTriggers.forEach(trigger => {
+            trigger.addEventListener('mouseenter', function() {
+                const imageName = this.getAttribute('data-image');
+
+                mainImage.style.backgroundImage = `url('../../Media/Images/${imageName}')`; // Change img url to trigger given url
+
+                console.log('Changing to:', imageName);
+            });
+        });
+        
+        // Reset to default when mouse leaves the entire menu area
+        document.querySelector('.menu').addEventListener('mouseleave', function() {
+            mainImage.style.backgroundImage = "url('../../Media/Images/Products/Visualizer.png')";
+        });
+    </script>
+</body>
+</html>
